@@ -1,14 +1,2 @@
-
-<html><head><link rel="stylesheet" href="css/style.css"></head>
-<body>
-<script src="js/app.js"></script>
-<script>document.write(nav())</script>
-<div class="container">
-<div class="card"><h1>Welcome</h1><p>500 LLD starter balance</p></div>
-<div class="grid">
-<div class="card"><h2>Open Packs</h2><a href="open.html"><button class="btn">Open</button></a></div>
-<div class="card"><h2>Inventory</h2><a href="inventory.html"><button class="btn">Inventory</button></a></div>
-<div class="card"><h2>Quick Play</h2><a href="quickplay.html"><button class="btn">Play</button></a></div>
-</div>
-</div>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hub · Case League</title><link rel="stylesheet" href="css/global.css"></head><body><script src="js/shared.js"></script><script>guard();document.write(nav('hub'));</script>
+<main class="wrap"><section class="hero"><div class="panel"><div class="panel-content"><div class="eyebrow">Dashboard</div><h1>Road to Glory</h1><p class="lead">Open packs, select 3 players, enter Quick Play against competitive AI, or prepare fixtures in Normal League.</p><div class="btn-row"><a class="btn" href="open.html">Open Packs</a><a class="btn secondary" href="quickplay.html">Quick Play</a><a class="btn secondary" href="normal.html">Normal League</a></div><div class="stats"><div class="stat"><b id="hInv">0</b><span>Inventory</span></div><div class="stat"><b id="hQP">0</b><span>QP Points</span></div><div class="stat"><b id="hLLD">0</b><span>LLD</span></div><div class="stat"><b id="hConf">50</b><span>Avg Confidence</span></div></div></div></div></section><section class="section grid"><div class="card"><div class="card-content"><h2>Open Cases</h2><p class="lead">Starter packs are untradeable. Paid or LLD packs become tradeable.</p><a class="btn" href="open.html">Open Now</a></div></div><div class="card"><div class="card-content"><h2>Quick Play</h2><p class="lead">50 LLD entry. Bot fallback is automatic in the demo.</p><a class="btn blue" href="quickplay.html">Start Match</a></div></div><div class="card"><div class="card-content"><h2>Normal League</h2><p class="lead">Career style calendar, fixture prep, standings and 30 day seasons.</p><a class="btn secondary" href="normal.html">View Calendar</a></div></div><div class="card"><div class="card-content"><h2>Marketplace</h2><p class="lead">Tradeable items only. 20% admin tax on purchases.</p><a class="btn secondary" href="marketplace.html">Open Market</a></div></div></section></main><div class="footer">Case League demo · GitHub Pages safe flat structure</div><script>const cards=State.inventory.filter(x=>x.type!=='recovery');hInv.textContent=State.inventory.length;hQP.textContent=State.quick.points;hLLD.textContent=State.lld;hConf.textContent=cards.length?Math.round(cards.reduce((a,c)=>a+c.confidence,0)/cards.length):50;</script></body></html>

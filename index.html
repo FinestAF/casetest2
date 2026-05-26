@@ -1,19 +1,2 @@
-
-<html><head><link rel="stylesheet" href="css/style.css"></head>
-<body>
-<div class="container">
-<div class="card">
-<h1>Case League</h1>
-<input id="n" placeholder="Nickname" style="padding:12px">
-<button class="btn" onclick="go()">Enter</button>
-</div>
-</div>
-<script src="js/app.js"></script>
-<script>
-function go(){
-state.username=document.getElementById('n').value || 'Player';
-save();
-window.location='hub.html';
-}
-</script>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case League</title><link rel="stylesheet" href="css/global.css"></head><body>
+<main class="hero"><div class="wrap hero-grid"><section class="panel"><div class="panel-content"><div class="eyebrow">Looklist Promo Game · World Cup 2026</div><h1>Case League</h1><p class="lead">Open packs, build a 3 player squad, play dramatic 2D quick matches, climb leagues, loan cards, trade the market and build confidence based form.</p><div style="max-width:460px;margin-top:24px"><label class="eyebrow">Enter nickname only</label><input class="input" id="name" placeholder="e.g. SouthLondonAce" maxlength="18"><button class="btn" style="margin-top:12px;width:100%" onclick="login()">Enter Case League</button></div><p class="notice" style="margin-top:18px">Starter account gives 500 LLD and 3 untradeable Standard packs for abuse protection.</p></div></section><aside class="card"><div class="card-content"><div class="pack-visual">⚽</div><h2>Demo Build V3.7</h2><p class="lead">Flat GitHub Pages structure. No build step. No router. No missing styles.</p><div class="stats"><div class="stat"><b>3</b><span>Free packs</span></div><div class="stat"><b>500</b><span>Starter LLD</span></div><div class="stat"><b>90s</b><span>Match sim</span></div><div class="stat"><b>2</b><span>Modes</span></div></div></div></aside></div></main><script src="js/shared.js"></script><script>function login(){const n=document.getElementById('name').value.trim(); if(!n){toast('Enter a nickname','bad'); return;} State.username=n; if(!State.flag) State.flag='🇬🇧'; save(); location.href='hub.html';}</script></body></html>

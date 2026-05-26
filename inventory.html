@@ -1,16 +1,1 @@
-
-<html><head><link rel="stylesheet" href="css/style.css"></head>
-<body>
-<script src="js/app.js"></script>
-<script>document.write(nav())</script>
-<div class="container">
-<h1>Inventory</h1>
-<div class="grid" id="i"></div>
-</div>
-<script>
-let i=document.getElementById('i');
-state.inventory.forEach(p=>{
-i.innerHTML += `<div class="player"><h3>${p.name}</h3><p>${p.country}</p><p>Confidence ${p.confidence}</p></div>`;
-});
-</script>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inventory · Case League</title><link rel="stylesheet" href="css/global.css"></head><body><script src="js/shared.js"></script><script>guard();document.write(nav('inventory'));</script><main class="wrap"><section class="hero"><div class="panel"><div class="panel-content"><div class="eyebrow">Inventory</div><h1>Your Cards</h1><p class="lead">Loan players for 12 hours, list tradeable cards, use recovery cards and inspect career stats. Loaned, injured or suspended players cannot be used in matches.</p><div class="filters"><button class="btn small secondary" onclick="render('all')">All</button><button class="btn small secondary" onclick="render('player')">Players</button><button class="btn small secondary" onclick="render('recovery')">Recovery</button><button class="btn small danger" onclick="resetDemo()">Reset Demo</button></div></div></div></section><section class="grid" id="inv"></section></main><script>function actions(c){if(c.type==='recovery')return '';let a=`<div class="btn-row"><button class="btn small secondary" onclick="sendLoan('${c.id}')">Loan 12h</button>`; if(c.tradeable&&!isUnavailable(c)) a+=`<button class="btn small" onclick="askList('${c.id}',${c.value})">List ${c.value} LLD</button>`; if(c.injured||c.suspended) a+=`<button class="btn small blue" onclick="useRecovery('${c.id}')">Use Recovery</button>`; return a+'</div><div class="status-row"><span class="tag">M '+c.stats.matches+'</span><span class="tag">G '+c.stats.goals+'</span><span class="tag">A '+c.stats.assists+'</span><span class="tag">T '+c.stats.tackles+'</span><span class="tag">CS '+c.stats.cleanSheets+'</span></div>'}function askList(id,v){const p=prompt('List price in LLD',v); if(p)listCard(id,p); render('all')}function render(filter='all'){let data=State.inventory;if(filter==='player')data=data.filter(x=>x.type!=='recovery');if(filter==='recovery')data=data.filter(x=>x.type==='recovery');inv.innerHTML=data.length?data.map(c=>cardHTML(c,{actions:actions(c)})).join(''):'<div class="card"><div class="card-content"><h2>Empty</h2><p>Open packs to start collecting.</p><a class="btn" href="open.html">Open Packs</a></div></div>'}render('all')</script></body></html>
