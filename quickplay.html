@@ -1,0 +1,83 @@
+
+<html><head><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<script src="js/app.js"></script>
+<script>document.write(nav())</script>
+<div class="container">
+<div class="card">
+<h1>Quick Play vs AI</h1>
+<button class="btn" onclick="start()">Start Match</button>
+</div>
+
+<div class="pitch" id="pitch" style="display:none;">
+<div class="ball" id="ball"></div>
+</div>
+
+<div class="card" id="log"></div>
+
+</div>
+
+<script>
+function add(t){
+document.getElementById('log').innerHTML += '<div>'+t+'</div>';
+}
+
+function start(){
+document.getElementById('pitch').style.display='block';
+
+let pitch=document.getElementById('pitch');
+
+for(let i=0;i<3;i++){
+let a=document.createElement('div');
+a.className='circle';
+a.style.left=(50+i*40)+'px';
+a.style.top=(120+i*60)+'px';
+pitch.appendChild(a);
+
+let b=document.createElement('div');
+b.className='square';
+b.style.left=(650+i*40)+'px';
+b.style.top=(120+i*60)+'px';
+pitch.appendChild(b);
+}
+
+let ball=document.getElementById('ball');
+ball.style.left='390px';
+ball.style.top='200px';
+
+let min=0;
+let us=0;
+let them=0;
+
+let game=setInterval(()=>{
+min += 10;
+
+ball.style.left=(Math.random()*760)+'px';
+ball.style.top=(Math.random()*360)+'px';
+
+if(Math.random()>0.7){
+if(Math.random()>0.5){
+us++;
+add(min + "' GOAL YOU");
+}else{
+them++;
+add(min + "' GOAL BOT");
+}
+}
+
+if(min>=90){
+clearInterval(game);
+
+let reward=us>them ? 100+us : 0;
+state.lld += reward;
+save();
+
+add('FULL TIME');
+add('YOU '+us+' - '+them+' BOT');
+add('Reward '+reward+' LLD');
+}
+},1000);
+}
+</script>
+
+</body></html>

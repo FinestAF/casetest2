@@ -1,1 +1,19 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case League</title><link rel="stylesheet" href="css/style.css"></head><body data-page="login"><main class="wrap hero"><section><div class="eyebrow">Looklist World Cup promo game</div><h1>Case League</h1><p>Open football cases, build a 3 player squad, trade cards in LLD and climb divisions in a fast 90 second match simulator.</p><div class="stats"><div class="stat"><b>3</b><span>Free Standard Cases</span></div><div class="stat"><b>1</b><span>Free Rare Case</span></div><div class="stat"><b>750</b><span>Starter LLD</span></div></div></section><section class="loginBox"><div class="loginInner"><div class="eyebrow">Enter demo</div><h2>Road to Glory starts here</h2><p>Username only for now. No backend required. Works on GitHub Pages.</p><form id="loginForm"><input class="input" id="username" placeholder="Enter username" autocomplete="off"><div class="btns"><button class="btn gold" type="submit">Enter Case League</button></div></form></div></section></main><script src="js/app.js"></script></body></html>
+
+<html><head><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div class="container">
+<div class="card">
+<h1>Case League</h1>
+<input id="n" placeholder="Nickname" style="padding:12px">
+<button class="btn" onclick="go()">Enter</button>
+</div>
+</div>
+<script src="js/app.js"></script>
+<script>
+function go(){
+state.username=document.getElementById('n').value || 'Player';
+save();
+window.location='hub.html';
+}
+</script>
+</body></html>

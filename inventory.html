@@ -1,1 +1,16 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case League | inventory</title><link rel="stylesheet" href="../css/style.css"></head><body data-page="inventory"><header class="topbar" data-nav></header><main class="wrap" id="app"><section class="card"><div class="eyebrow">Inventory</div><h2>Your player collection</h2><p>Filter your cards, review stats and list players on the LLD marketplace.</p><div class="stats" id="invStats"></div><div class="filters" id="filters"></div></section><br><section class="grid" id="invGrid"></section></main><script src="../js/app.js"></script></body></html>
+
+<html><head><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<script src="js/app.js"></script>
+<script>document.write(nav())</script>
+<div class="container">
+<h1>Inventory</h1>
+<div class="grid" id="i"></div>
+</div>
+<script>
+let i=document.getElementById('i');
+state.inventory.forEach(p=>{
+i.innerHTML += `<div class="player"><h3>${p.name}</h3><p>${p.country}</p><p>Confidence ${p.confidence}</p></div>`;
+});
+</script>
+</body></html>
